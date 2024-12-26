@@ -1,0 +1,141 @@
+@model AutoCubes.UI.Models.Supplier.CreateSupplierViewModel
+@{
+	ViewData["Title"] = "Create - Supplier";
+}
+
+@* ************** Content ************** *@
+<div class="row">
+	<div class="col-xl">
+		<div class="card mb-6">
+			<div class="card-header d-flex justify-content-between align-items-center">
+				<h5 class="mb-0">Create Supplier</h5>
+				<small class="text-body float-end"></small>
+			</div>
+			<div class="card-body">
+				<form asp-action="Create" method="post">
+					<div class="row mb-6">
+						<div class="col-md-8">
+							<label class="form-label" asp-for="SupplierName">Supplier Name</label>
+							<div class="input-group input-group-merge">
+								<span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
+								<input asp-for="SupplierName" class="form-control" />
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label asp-for="SupplierType" class="form-label">Supplier Type</label>
+							<select asp-for="SupplierType" asp-items="@(new SelectList(Model.SupplierTypes,"Id","Name"))" class="form-select">
+								<option value="">Select</option>
+							</select>
+						</div>
+					</div>
+					<div class="row mb-6">
+
+						<div class="col-md-4">
+							<label class="form-label" asp-for="SupplierAlias">Supplier Alias</label>
+							<div class="input-group input-group-merge">
+								<span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
+								<input asp-for="SupplierAlias" class="form-control" />
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label class="form-label" asp-for="Cin">CIN No</label>
+							<div class="input-group input-group-merge">
+								<input asp-for="Cin" class="form-control phone-mask" />
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label class="form-label" asp-for="SupplierCode">Supplier Code</label>
+							<div class="input-group input-group-merge">
+								<span id="basic-icon-default-company2" class="input-group-text"><i class='bx bx-barcode'></i></span>
+								<input asp-for="SupplierCode" class="form-control" />
+							</div>
+						</div>
+					</div>
+					<div class="row mb-6">
+						<div class="col-md-4">
+							<label class="form-label" asp-for="SupplierContactPerson">Contact Person Name</label>
+							<div class="input-group input-group-merge">
+								<span id="basic-icon-default-company2" class="input-group-text"><i class='bx bx-user-voice'></i></span>
+								<input asp-for="SupplierContactPerson" class="form-control" />
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label class="form-label" asp-for="SupplierEmail">Email</label>
+							<div class="input-group input-group-merge">
+								<span class="input-group-text"><i class="bx bx-envelope"></i></span>
+								<input asp-for="SupplierEmail" class="form-control" />
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label class="form-label" asp-for="SupplierMobile">Phone No</label>
+							<div class="input-group input-group-merge">
+								<span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
+								<input asp-for="SupplierMobile" class="form-control phone-mask" placeholder="99000 00000" />
+							</div>
+						</div>
+
+					</div>
+					<div class="row mb-6">
+						<div class="col-md-4">
+							<label class="form-label" asp-for="Gstin">GSTIN</label>
+							<div class="input-group input-group-merge">
+								<input asp-for="Gstin" class="form-control phone-mask" placeholder="29GGGGG1314R9Z6" />
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label class="form-label" asp-for="Pan">PAN</label>
+							<div class="input-group input-group-merge">
+								<input asp-for="Pan" class="form-control phone-mask" placeholder="ABCTY1234D" />
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label class="form-label" asp-for="Iec">IEC</label>
+							<div class="input-group input-group-merge">
+								<input asp-for="Iec" class="form-control phone-mask" placeholder="ABCTY1234D" />
+							</div>
+						</div>
+					</div>
+					<div class="row mb-6">
+						<div class="col-md-4">
+							<label asp-for="SupplierCountryId" class="form-label">Country</label>
+							<select asp-for="SupplierCountryId" asp-items="@(new SelectList(Model.Countries,"Id","Name"))" class="form-select">
+								<option>Select Country</option>
+							</select>
+						</div>
+						<div class="col-md-4">
+							<label asp-for="SupplierStateId" class="form-label">State</label>
+							<select asp-for="SupplierStateId" asp-items="@(new SelectList(Model.States,"Id","Name"))" class="form-select">
+								<option>Select State</option>
+							</select>
+						</div>
+						<div class="col-md-4">
+							<label asp-for="SupplierCityId" class="form-label">City</label>
+							<select asp-for="SupplierCityId" asp-items="@(new SelectList(Model.Cities,"Id","Name"))" class="form-select">
+								<option>Select City</option>
+							</select>
+						</div>
+					</div>
+					<div class="row mb-6">
+						<div class="col-md-8">
+							<label class="form-label" asp-for="SupplierAddress">Address</label>
+							<div class="input-group input-group-merge">
+								<span id="basic-icon-default-message2" class="input-group-text">
+									<i class='bx bx-location-plus'></i>
+								</span>
+								<input asp-for="SupplierAddress" class="form-control" />
+							</div>
+						</div>
+						<div class="col-md-4">
+							<label class="form-label" asp-for="SupplierPincode">Pincode</label>
+							<div class="input-group input-group-merge">
+								<span id="basic-icon-default-phone2" class="input-group-text"><i class='bx bxs-map-pin'></i></span>
+								<input asp-for="SupplierPincode" class="form-control phone-mask" />
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Save</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
