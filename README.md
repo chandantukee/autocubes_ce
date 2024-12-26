@@ -1,0 +1,2 @@
+# autocubes_ce
+AutoCubes_Community_Edition
